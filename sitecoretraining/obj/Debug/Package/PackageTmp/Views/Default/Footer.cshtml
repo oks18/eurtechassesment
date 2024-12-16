@@ -1,0 +1,132 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Data.Fields
+@using Sitecore.Data.Items
+
+@*@if (Model != null && Model.Item != null)
+    {
+        MultilistField multiselectField = Model.Item.Fields["Footermenu"];
+        Item[] serviceItems = multiselectField.GetItems();*@
+
+@*foreach (var item in serviceItems)
+    {
+
+        @Html.Sitecore().Field("Title", item)
+        @Html.Sitecore().Field("value1", item)
+        @Html.Sitecore().Field("value2", item)
+        @Html.Sitecore().Field("value3", item)
+        @Html.Sitecore().Field("value4", item)
+        @Html.Sitecore().Field("value5", item)
+        @Html.Sitecore().Field("value6", item)
+        @Html.Sitecore().Field("value7", item)
+        @Html.Sitecore().Field("value8", item)
+        @Html.Sitecore().Field("value9", item)
+        @Html.Sitecore().Field("value10", item)
+
+    }
+
+    @Html.Sitecore().Field("Copyright", Model.Item)*@
+
+<link rel="stylesheet" href="~/css/Footer.css" />
+
+
+@*<div class="footer">
+        @if (Model != null && Model.Item != null)
+        {
+            MultilistField multiselectField = Model.Item.Fields["Footermenu"];
+            Item[] serviceItems = multiselectField.GetItems();
+
+            <div class="footer-sections">
+                @foreach (var item in serviceItems)
+                {
+                    <div class="footer-section">
+                        <h3 class="footer-heading">@Html.Sitecore().Field("Title", item)</h3>
+                        @Html.Sitecore().Field("value1", item)
+                        @Html.Sitecore().Field("value2", item)
+                        @Html.Sitecore().Field("value3", item)
+                        @Html.Sitecore().Field("value4", item)
+                        @Html.Sitecore().Field("value5", item)
+                        @Html.Sitecore().Field("value6", item)
+                        @Html.Sitecore().Field("value7", item)
+                        @Html.Sitecore().Field("value8", item)
+                        @Html.Sitecore().Field("value9", item)
+                        @Html.Sitecore().Field("value10", item)
+                    </div>
+                }
+            </div>
+
+            <div class="footer-copyright">
+                @Html.Sitecore().Field("Copyright", Model.Item)
+            </div>
+        }
+    </div>*@
+
+
+@*<div class="footer">
+
+    @if (Model != null && Model.Item != null)
+    {
+        MultilistField multiselectField = Model.Item.Fields["Footermenu"];
+        Item[] serviceItems = multiselectField.GetItems();
+
+        <div class="footer-sections">
+            @foreach (var item in serviceItems)
+            {
+                <div class="footer-section">
+                    <h3 class="footer-heading">@Html.Sitecore().Field("Title", item)</h3>
+                    <ul class="footer-list">
+                        @Html.Sitecore().Field("value1", item)
+                        @Html.Sitecore().Field("value2", item)
+                        @Html.Sitecore().Field("value3", item)
+                        @Html.Sitecore().Field("value4", item)
+                        @Html.Sitecore().Field("value5", item)
+                        @Html.Sitecore().Field("value6", item)
+                        @Html.Sitecore().Field("value7", item)
+                        @Html.Sitecore().Field("value8", item)
+                        @Html.Sitecore().Field("value9", item)
+                        @Html.Sitecore().Field("value10", item)
+                    </ul>
+                </div>
+            }
+        </div>
+
+        <div class="footer-copyright">
+            @Html.Sitecore().Field("Copyright", Model.Item)
+        </div>
+    }
+</div>*@
+
+@model sitecoretraining.Models.Footer
+
+<div class="footer">
+    @if (Model != null && Model.Item != null)
+    {
+        MultilistField multiselectField = Model.Item.Fields["Footermenu"];
+        Item[] serviceItems = multiselectField.GetItems();
+
+        <div class="footer-sections">
+            @foreach (var item in serviceItems)
+            {
+                <div class="footer-section">
+                    <h3 class="footer-heading">@Html.Sitecore().Field("Title", item)</h3>
+                    <ul class="footer-list">
+                        <li>@Html.Sitecore().Field("value1", item)</li>
+                        <li>@Html.Sitecore().Field("value2", item)</li>
+                        @* Uncomment if required *@
+                        @* <li>@Html.Sitecore().Field("value3", item)</li> *@
+                        <li>@Html.Sitecore().Field("value4", item)</li>
+                        <li>@Html.Sitecore().Field("value5", item)</li>
+                        <li>@Html.Sitecore().Field("value6", item)</li>
+                        <li>@Html.Sitecore().Field("value7", item)</li>
+                        <li>@Html.Sitecore().Field("value8", item)</li>
+                        <li>@Html.Sitecore().Field("value9", item)</li>
+                        <li>@Html.Sitecore().Field("value10", item)</li>
+                    </ul>
+                </div>
+            }
+        </div>
+
+        <div class="footer-copyright">
+            @Html.Sitecore().Field("Copyright", Model.Item)
+        </div>
+    }
+</div>

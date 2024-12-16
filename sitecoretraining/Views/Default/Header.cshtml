@@ -1,0 +1,188 @@
+﻿@*@using Sitecore.Mvc
+
+    @using Sitecore.Mvc.Presentation
+
+    @using Sitecore.Data.Fields
+
+    @using Sitecore.Data.Items
+
+    @using sitecoretraining.Models
+
+    @model Header
+
+    @if (Model != null && Model.Item != null)
+
+    {
+
+        @Html.Sitecore().Field("imgLogo", Model.Item)
+
+        <p>HOME</p>
+        MultilistField HomeField = Model.Item.Fields["Home"];
+        if (HomeField != null)
+        {
+            Item[] Homeitems = HomeField.GetItems();
+
+            foreach (var item in Homeitems)
+            {
+                @Html.Sitecore().Field("link", item)
+            }
+        }
+
+        <p>ABOUT</p>
+
+        <p>SERVICES</p>
+        MultilistField ServicesField = Model.Item.Fields["Services"];
+        if (HomeField != null)
+        {
+            Item[] Servicesitems = ServicesField.GetItems();
+
+            foreach (var item in Servicesitems)
+            {
+                @Html.Sitecore().Field("link", item)
+            }
+        }
+
+        <p>BLOG</p>
+        MultilistField BlogField = Model.Item.Fields["Blog"];
+        if (BlogField != null)
+        {
+            Item[] Blogitems = BlogField.GetItems();
+
+            foreach (var item in Blogitems)
+            {
+                @Html.Sitecore().Field("link", item)
+            }
+        }
+
+        <p>PAGES</p>
+        MultilistField PagesField = Model.Item.Fields["Pages"];
+        if (PagesField != null)
+        {
+            Item[] Pagesitems = PagesField.GetItems();
+
+            foreach (var item in Pagesitems)
+            {
+                @Html.Sitecore().Field("link", item)
+            }
+        }
+
+
+        <p>CONTENT</p>
+
+    }*@
+
+
+
+
+
+
+
+
+@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@using Sitecore.Data.Fields
+@using Sitecore.Data.Items
+@using sitecoretraining.Models
+
+
+<link rel="stylesheet" href="~/css/header.css" />
+
+@model Header
+
+@if (Model != null && Model.Item != null)
+{
+
+    <div class="header">
+        <div class="logo">
+            @Html.Sitecore().Field("imgLogo", Model.Item)
+        </div>
+        <div class="menu-icon">☰</div>
+        <ul class="nav">
+            <li>
+                <a href="#">HOME</a>
+                <ul class="dropdown">
+                    @if (Model.Item != null)
+                    {
+                        MultilistField homeField = Model.Item.Fields["Home"];
+                        if (homeField != null)
+                        {
+                            Item[] homeItems = homeField.GetItems();
+                            foreach (var item in homeItems)
+                            {
+                                <li>@Html.Sitecore().Field("link", item)</li>
+                            }
+                        }
+                    }
+                </ul>
+            </li>
+            <li>
+                <a href="#">ABOUT</a>
+            </li>
+            <li>
+                <a href="#">SERVICES</a>
+                <ul class="dropdown">
+                    @if (Model.Item != null)
+                    {
+                        MultilistField servicesField = Model.Item.Fields["Services"];
+                        if (servicesField != null)
+                        {
+                            Item[] servicesItems = servicesField.GetItems();
+                            foreach (var item in servicesItems)
+                            {
+                                <li>@Html.Sitecore().Field("link", item)</li>
+                            }
+                        }
+                    }
+                </ul>
+            </li>
+            <li>
+                <a href="#">BLOG</a>
+                <ul class="dropdown">
+                    @if (Model.Item != null)
+                    {
+                        MultilistField blogField = Model.Item.Fields["Blog"];
+                        if (blogField != null)
+                        {
+                            Item[] blogItems = blogField.GetItems();
+                            foreach (var item in blogItems)
+                            {
+                                <li>@Html.Sitecore().Field("link", item)</li>
+                            }
+                        }
+                    }
+                </ul>
+            </li>
+            <li>
+                <a href="#">PAGES</a>
+                <ul class="dropdown">
+                    @if (Model.Item != null)
+                    {
+                        MultilistField pagesField = Model.Item.Fields["Pages"];
+                        if (pagesField != null)
+                        {
+                            Item[] pagesItems = pagesField.GetItems();
+                            foreach (var item in pagesItems)
+                            {
+                                <li>@Html.Sitecore().Field("link", item)</li>
+                            }
+                        }
+                    }
+                </ul>
+            </li>
+            <li>
+                <a href="#">CONTACT</a>
+            </li>
+        </ul>
+    </div>
+
+}
+
+<script>
+    const menuIcon = document.querySelector('.menu-icon');
+    const nav = document.querySelector('.nav');
+
+    menuIcon.addEventListener('click', () => {
+        nav.classList.toggle('active');
+    });
+</script>
+
